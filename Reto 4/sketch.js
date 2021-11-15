@@ -120,6 +120,5 @@ function mousePressed() {
   }
   if (dist(mouseX, mouseY, 250, 470) < 20) {
     reset = true;
-    console.log("click");
   }
 }
