@@ -1,10 +1,10 @@
-let black;
+let black; // imagenes del color del cabello, para poder cambiarlo
 let blonde;
 let purple;
 let red;
 let white;
-let cH;
-let h = [25];
+let cH; //colorHair
+let h = [25]; //cada objeto cambiante tiene un arreglo y una variable que cambia el numero de la posicion
 let hair;
 let e = [7];
 let eyes;
@@ -14,8 +14,8 @@ let m = [7];
 let mouth;
 let s = [6];
 let skin;
-let freckles;
-let bx;
+let freckles; //decoracion de la muñeca :3
+let bx; //b = botones
 let bx2;
 let d;
 let b1y;
@@ -186,6 +186,7 @@ function draw() {
   if (skin === 0) {
     skin = 4;
   }
+  // segun el color del cabello el arreglo es dirente 
   if (hair === 4) {
     hair = 1;
   }

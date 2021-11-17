@@ -1,15 +1,12 @@
 let squares = new Array(3);
-let estado;
-let play;
+let estado; //para cambiar entre X y O
 let figuras = new Array(3);
 let reset;
 
 function setup() {
   createCanvas(500, 500);
   estado = true;
-  play = 0;
   reset = false;
-
   for (let i = 0; i < 3; i++) {
     squares[i] = new Array(3);
     for (let j = 0; j < 3; j++) {
@@ -79,7 +76,6 @@ function draw() {
     squares[1][1].setG(180);
     squares[2][0].setG(180);
   }
-
   fill(10);
   rectMode(CENTER);
   rect(250, 470, 100, 40);
@@ -92,7 +88,6 @@ function draw() {
 
   if (reset === true) {
     estado = true;
-    play = 0;
     reset = 0;
     for (let i = 0; i < 3; i++) {
       figuras[i] = new Array(3);
@@ -108,11 +103,9 @@ function mousePressed() {
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       if (squares[i][j].click() && estado === true) {
-        play = 1;
         figuras[i][j] = "X";
         estado = !estado;
       } else if (squares[i][j].click() && estado === false) {
-        play = 2;
         figuras[i][j] = "O";
         estado = !estado;
       }
