@@ -21,8 +21,8 @@ class Frog {
     up() {
         this.y = this.y - 65
     }
-    die(cx,cy){
-        if(dist(cx,cy,this.x, this.y)<30){
+    die(cx, cy) {
+        if (dist(cx, cy, this.x, this.y) < 30) {
             this.x = 0;
             this.y = 195;
         }
@@ -37,7 +37,7 @@ class Frog {
     setX(n) {
         this.x = n;
     }
-   setY(ny) {
+    setY(ny) {
         this.y = ny;
     }
 }

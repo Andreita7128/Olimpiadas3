@@ -1,3 +1,8 @@
+/*Catalina Giraldo- A00371842
+ * Laura Forero- A00369431
+ * Andrea Torrente - A00365669
+ */
+
 let black; // imagenes del color del cabello, para poder cambiarlo
 let blonde;
 let purple;
@@ -15,19 +20,13 @@ let mouth;
 let s = [6];
 let skin;
 let freckles; //decoracion de la muñeca :3
-let bx; //b = botones
-let bx2;
-let d;
-let b1y;
-let b2y;
-let b4y;
-let b5y;
-let bhy;
+let bhy; // botones auxiliares
 let bhx1;
 let bhx2;
 let bhx3;
 let bhx4;
 let bhx5;
+let buttons = [];
 
 function setup() {
   createCanvas(350, 350);
@@ -36,14 +35,6 @@ function setup() {
   clothes = 1;
   eyes = 1;
   hair = 1;
-  bx = 60;
-  bx2 = 280;
-  d = 20;
-  b1y = 215;
-  b2y = 245;
-  b3y = 275;
-  b4y = 305;
-  b5y = 335;
   bhy = 60;
   dh = 40;
   bhx1 = 70;
@@ -121,6 +112,13 @@ function setup() {
   s[3] = new Pictures(loadImage("/ImagenesReto1O3/Piel/Base3.png"));
   s[4] = new Pictures(loadImage("/ImagenesReto1O3/Piel/Base4.png"));
   s[5] = new Pictures(loadImage("/ImagenesReto1O3/Piel/Base4.png"));
+
+  for (let i = 0; i < 2; i++) {
+    buttons[i] = new Array(5);
+    for (let j = 0; j < 5; j++) {
+      buttons[i][j] = new Buttons((220 * i) + 50, (30 * j) + 200, 20);
+    }
+  }
 }
 
 function draw() {
@@ -137,20 +135,12 @@ function draw() {
   white.show();
   h[hair].show();
 
-  //botones
-  noStroke();
-  fill(180, 100, 200);
-  circle(bx, b1y, d);
-  circle(bx2, b1y, d);
-  circle(bx, b2y, d);
-  circle(bx2, b2y, d);
-  circle(bx, b3y, d);
-  circle(bx2, b3y, d);
-  circle(bx, b4y, d);
-  circle(bx2, b4y, d);
-  circle(bx, b5y, d);
-  circle(bx2, b5y, d);
-  strokeWeight(1);
+  for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 5; j++) {
+      buttons[i][j].show();
+    }
+  }
+
   //boton cambio de color
   strokeWeight(2);
   stroke(180, 10, 200)
@@ -220,49 +210,49 @@ function draw() {
 }
 
 function mousePressed() {
-  if (dist(mouseX, mouseY, bx, b1y) < d) {
+  if (buttons[0][0].click(mouseX, mouseY)) {
     hair--;
   }
-  if (dist(mouseX, mouseY, bx2, b1y) < d) {
+  if (buttons[1][0].click(mouseX, mouseY)) {
     hair++;
   }
-  if (dist(mouseX, mouseY, bx, b2y) < d) {
+  if (buttons[0][1].click(mouseX, mouseY)) {
     eyes--;
   }
-  if (dist(mouseX, mouseY, bx2, b2y) < d) {
+  if (buttons[1][1].click(mouseX, mouseY)) {
     eyes++;
   }
-  if (dist(mouseX, mouseY, bx, b3y) < d) {
+  if (buttons[0][2].click(mouseX, mouseY)) {
     mouth--;
   }
-  if (dist(mouseX, mouseY, bx2, b3y) < d) {
+  if (buttons[1][2].click(mouseX, mouseY)) {
     mouth++;
   }
-  if (dist(mouseX, mouseY, bx, b4y) < d) {
-    skin--;
-  }
-  if (dist(mouseX, mouseY, bx2, b4y) < d) {
-    skin++;
-  }
-  if (dist(mouseX, mouseY, bx, b5y) < d) {
+  if (buttons[0][3].click(mouseX, mouseY)) {
     clothes--;
   }
-  if (dist(mouseX, mouseY, bx2, b5y) < d) {
+  if (buttons[1][3].click(mouseX, mouseY)) {
     clothes++;
   }
-  if (dist(mouseX, mouseY, bhx1, bhy) < dh) {
+  if (buttons[0][4].click(mouseX, mouseY)) {
+    skin--;
+  }
+  if (buttons[1][4].click(mouseX, mouseY)) {
+    skin++;
+  }
+  if (dist(mouseX, mouseY, bhx1, bhy) < dh / 2) {
     hair = 1;
   }
-  if (dist(mouseX, mouseY, bhx2, bhy) < dh) {
+  if (dist(mouseX, mouseY, bhx2, bhy) < dh / 2) {
     hair = 6;
   }
-  if (dist(mouseX, mouseY, bhx3, bhy) < dh) {
+  if (dist(mouseX, mouseY, bhx3, bhy) < dh / 2) {
     hair = 11;
   }
-  if (dist(mouseX, mouseY, bhx4, bhy) < dh) {
+  if (dist(mouseX, mouseY, bhx4, bhy) < dh / 2) {
     hair = 16;
   }
-  if (dist(mouseX, mouseY, bhx5, bhy) < dh) {
+  if (dist(mouseX, mouseY, bhx5, bhy) < dh / 2) {
     hair = 21;
   }
 }

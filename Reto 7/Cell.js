@@ -1,18 +1,18 @@
 class Cell {
-    constructor(x,y,b){
-    this.x = x;
-    this.y = y;
-    this.b = b;
+    constructor(x, y, b) {
+        this.x = x;
+        this.y = y;
+        this.b = b;
     }
-    
-    print(){
+
+    print() {
         rectMode(CENTER);
         strokeWeight(1);
-        stroke(10,175,200);
-       //  noStroke();
+        stroke(10, 175, 200);
+        //  noStroke();
         noFill();
-        rect(this.x,this.y,this.b,this.b);
+        rect(this.x, this.y, this.b, this.b);
         rectMode(CORNER);
     }
-    
-    }
+
+}

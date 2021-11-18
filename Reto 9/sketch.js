@@ -1,3 +1,8 @@
+/*Catalina Giraldo- A00371842
+ * Laura Forero- A00369431
+ * Andrea Torrente - A00365669
+ */
+
 let maps = new Array(10);
 let player;
 let dir; // 0 arr 1 aba
@@ -20,7 +25,7 @@ function setup() {
     }
   }
   for (let i = 0; i < 8; i++) {
-    cars[i] = new Car(0,(65 * i),(loadImage("Images/carbots.png")));
+    cars[i] = new Car(0, (65 * i), (loadImage("Images/carbots.png")));
   }
 }
 
@@ -41,13 +46,14 @@ function draw() {
     cars[4].move(random(1));
     cars[5].move(random(3));
     cars[6].move(random(4));
-    
-    if(player.die(cars[i].getX(), cars[i].getY())){
+
+    if (player.die(cars[i].getX(), cars[i].getY())) {
       player.getX() = player.setX(0);
-    player.getY() = player.setY(195);
+      player.getY() = player.setY(195);
     }
   }
 }
+
 function keyPressed() {
   if ((key === 'w' || key === 'W' || keyCode === UP_ARROW) && player.getY() > 0) {
     player.moveY(p1);
@@ -62,6 +68,7 @@ function keyPressed() {
     player.moveX(p1);
   }
 }
-function keyReleased(){
+
+function keyReleased() {
 
 }

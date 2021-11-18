@@ -9,22 +9,22 @@ class Player {
         image(this.image, this.x, this.y);
     }
     moveX(v) {
-        if(v === true){
-        this.x = this.x + 65
-        }else{
-        this.x = this.x - 65
+        if (v === true) {
+            this.x = this.x + 65
+        } else {
+            this.x = this.x - 65
+        }
     }
-}
 
     moveY(v) {
-        if(v === true){
-        this.y = this.y + 65
-        }else{
-        this.y = this.y - 65
+        if (v === true) {
+            this.y = this.y + 65
+        } else {
+            this.y = this.y - 65
+        }
     }
-}
-    die(cx,cy){
-        if(dist(cx,cy,this.x, this.y)<30){
+    die(cx, cy) {
+        if (dist(cx, cy, this.x, this.y) < 30) {
             this.x = 0;
             this.y = 195;
         }
@@ -39,7 +39,7 @@ class Player {
     setX(n) {
         this.x = n;
     }
-   setY(ny) {
+    setY(ny) {
         this.y = ny;
     }
 }

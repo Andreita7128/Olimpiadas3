@@ -1,3 +1,8 @@
+/*Catalina Giraldo- A00371842
+ * Laura Forero- A00369431
+ * Andrea Torrente - A00365669
+ */
+
 let ball;
 let player1;
 let player2;
@@ -8,17 +13,21 @@ let p2; //puntos player1
 let screen;
 let op1;
 let op2;
+let start;
+let info;
 
 function setup() {
   createCanvas(500, 550);
   screen = 0;
   moveP = false;
+  info = true;
   ball = new Ball(250, 250);
   player1 = new Players(20, 250);
   player2 = new Players(475, 250);
   dirB = 0;
   p1 = 0;
   p2 = 0;
+  start = 0;
   op1 = loadImage("Images/op1.png");
   op2 = loadImage("Images/op2.png");
 }
@@ -39,6 +48,11 @@ function draw() {
     text("Elije los controles", 250, 180);
     textSize(12);
     text("Select the controls", 250, 200);
+  }
+  if (start === 1) {
+    text("clickea la bolita", 250, 300);
+    textSize(12);
+    text("press the ball", 250, 320);
   }
   if (screen > 0) {
     ball.draw();
@@ -122,17 +136,22 @@ function keyPressed() {
 }
 
 function mousePressed() {
-  if (dist(mouseX, mouseY, 145, 280) < 60) {
-    screen = 1
+  if (dist(mouseX, mouseY, 145, 280) < 60 && info === true) {
+    screen = 1;
+    start = 1;
+    info = false;
   }
-  if (dist(mouseX, mouseY, 355, 280) < 60) {
-    screen = 2
+  if (dist(mouseX, mouseY, 355, 280) < 60 && info === true) {
+    screen = 2;
+    start = 1;
+    info = false;
   }
   if (dist(mouseX, mouseY, player2.getX(), player2.getY()) < 25) {
     moveP = true;
   }
-  if (ball.click(mouseX, mouseY, dirB)) {
+  if (ball.click(mouseX, mouseY)) {
     dirB = 1;
+    start = 0;
   }
 }
 

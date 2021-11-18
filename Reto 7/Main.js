@@ -1,3 +1,8 @@
+/*Catalina Giraldo- A00371842
+ * Laura Forero- A00369431
+ * Andrea Torrente - A00365669
+ */
+
 let maps = new Array(10);
 let frog;
 let dir; // 0 der 1 izq 2 arr 3 aba
@@ -17,19 +22,18 @@ function setup() {
       maps[i][j] = new Cell((65 * i) + 32.5, (65 * j) + 32.5, 65, 10);
     }
   }
-  for (let i = 1; i < 5; i++) {
+  for (let i = 1; i < 8; i++) {
     cars[i] = new Car((65 * i), 0, (loadImage("Images/car.png")));
   }
 }
 
 function draw() {
-  background(10, 180, 200);
-
-  fill(80);
-  rect(65, 0, 260, 455);
+  background(80);
   fill(50, 190, 70)
   rect(0, 0, 65, 455);
-  rect(325, 0, 65, 455);
+  rect(520, 0, 65, 455);
+  fill(10, 180, 200);
+  rect(585, 0, 65, 455);
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 7; j++) {
       maps[i][j].print();
@@ -37,17 +41,20 @@ function draw() {
   }
   image(waterLily, 585, 195);
   frog.print();
-  for (let i = 1; i < 5; i++) {
+  for (let i = 1; i < 8; i++) {
     cars[i].print();
-    cars[1].move(random(3));
+    cars[1].move(random(1));
     cars[2].move(random(2));
-    cars[3].move(random(4));
+    cars[3].move(random(3));
     cars[4].move(random(1));
+    cars[5].move(random(3));
+    cars[6].move(random(2));
+    cars[7].move(random(4));
   }
-  for (let i = 1; i < 5; i++) {
-    if(frog.die(cars[i].getX(), cars[i].getY())){
+  for (let i = 1; i < 8; i++) {
+    if (frog.die(cars[i].getX(), cars[i].getY())) {
       frog.getX() = frog.setX(0);
-    frog.getY() = frog.setY(195);
+      frog.getY() = frog.setY(195);
     }
   }
 
@@ -60,17 +67,17 @@ function draw() {
   } else if (dir === 3) {
     frog = new Frog(frog.getX(), frog.getY(), (loadImage("Images/frogdown.png")))
   }
-if(dist(frog.getX(), frog.getY(),585,195)<1){
-  stroke(10);
-  fill(250);
-  rectMode(CENTER);
-  rect(325,227.5,500,200)
-  rectMode(CORNER);
-  fill(10);
-  textAlign(CENTER);
-  textSize(100);
-  text("You Win!",320,260)
-}
+  if (dist(frog.getX(), frog.getY(), 585, 195) < 1) {
+    stroke(10);
+    fill(250);
+    rectMode(CENTER);
+    rect(325, 227.5, 500, 200)
+    rectMode(CORNER);
+    fill(10);
+    textAlign(CENTER);
+    textSize(100);
+    text("You Win!", 320, 260)
+  }
 }
 
 function keyPressed() {

@@ -9,11 +9,9 @@ class Ball {
         noStroke();
         circle(this.x, this.y, 20);
     }
-    click(mx, my, d) {
+    click(mx, my) {
         let result = false;
         if (dist(this.x, this.y, mx, my) < 10) {
-            console.log("click");
-            console.log(d);
             result = true;
         }
         return result;

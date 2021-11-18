@@ -7,10 +7,10 @@ class Car {
     print() {
         image(this.image, this.x, this.y);
     }
-    move(n){
-        if(this.y < 455){
-        this.y = this.y + n;
-        }else{
+    move(n) {
+        if (this.y < 455) {
+            this.y = this.y + n;
+        } else {
             this.y = -20;
         }
     }

@@ -1,3 +1,8 @@
+/*Catalina Giraldo- A00371842
+ * Laura Forero- A00369431
+ * Andrea Torrente - A00365669
+ */
+
 let squares = new Array(3);
 let estado; //para cambiar entre X y O
 let figuras = new Array(3);
